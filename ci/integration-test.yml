@@ -8,6 +8,7 @@ params:
   CF_API:
   CF_USERNAME:
   CF_PASSWORD:
+  CONFIG:
 
 run:
   path: cpu-entitlement-plugin/ci/integration-test.sh
