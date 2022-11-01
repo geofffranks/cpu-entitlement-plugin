@@ -63,7 +63,7 @@ func (p CPUEntitlementPlugin) Run(cli plugin.CliConnection, args []string) {
 		os.Exit(1)
 	}
 
-	ui.Warn("Note: This feature is experimental.")
+	ui.Warn("Note: This plugin is experimental.")
 
 	logCacheURL, err := getLogCacheURL(cli)
 	if err != nil {
