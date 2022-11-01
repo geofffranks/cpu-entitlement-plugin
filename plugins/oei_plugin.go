@@ -55,7 +55,7 @@ func (p CPUEntitlementAdminPlugin) Run(cli plugin.CliConnection, args []string) 
 		os.Exit(1)
 	}
 
-	ui.Warn("Note: This feature is experimental.")
+	ui.Warn("Note: This plugin is experimental.")
 
 	sslIsDisabled, err := cli.IsSSLDisabled()
 	if err != nil {
