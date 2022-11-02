@@ -4,6 +4,7 @@ platform: linux
 inputs:
 - name: cpu-entitlement-plugin
 - name: test-config
+  optional: true
 
 params:
   CF_API:
