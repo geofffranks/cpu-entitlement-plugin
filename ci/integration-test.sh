@@ -2,16 +2,18 @@
 set -e
 
 if [ -n "$CONFIG" ]; then
-  CF_API=$(cat ${CONFIG_PATH} | jq .api)
-  CF_USERNAME=$(cat ${CONFIG_PATH} | jq .admin_user)
-  CF_PASSWORD=$(cat ${CONFIG_PATH} | jq .admin_password)
+  export CF_API=$(cat ${CONFIG} | jq -r .api)
+  export CF_USERNAME=$(cat ${CONFIG} | jq -r .admin_user)
+  export CF_PASSWORD=$(cat ${CONFIG} | jq -r .admin_password)
+  export ROUTER_CA_CERT=$(cat ${CONFIG} | jq -r .lb_cert)
 fi
 
 # sample CONFIG file
 # {
 #   "admin_password": "meow",
 #   "admin_user": "admin",
-#   "api": "meow.com"
+#   "api": "meow.com",
+#   "lb_cert": "BEGIN MEOW CERT"
 # }
 
 pushd cpu-entitlement-plugin
