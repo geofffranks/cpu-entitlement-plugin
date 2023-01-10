@@ -11,3 +11,8 @@ outputs:
 run:
   path: cpu-entitlement-plugin/ci/build-binaries.sh
 
+image_resource:
+  type: registry-image
+  source:
+    repository: c2cnetworking/tas-runtime-build
+    tag: latest

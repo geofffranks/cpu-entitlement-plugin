@@ -3,7 +3,7 @@ platform: linux
 
 inputs:
 - name: cpu-entitlement-plugin
-- name: test-config
+- name: cf-env-variables
   optional: true
 
 params:
@@ -15,3 +15,9 @@ params:
 
 run:
   path: cpu-entitlement-plugin/ci/e2e-test.sh
+
+image_resource:
+  type: registry-image
+  source:
+    repository: c2cnetworking/tas-runtime-build
+    tag: latest

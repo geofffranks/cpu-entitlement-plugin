@@ -5,7 +5,7 @@ if [ -n "$CONFIG" ]; then
   export CF_API=$(cat ${CONFIG} | jq -r .api)
   export CF_USERNAME=$(cat ${CONFIG} | jq -r .admin_user)
   export CF_PASSWORD=$(cat ${CONFIG} | jq -r .admin_password)
-  export ROUTER_CA_CERT=$(cat ${CONFIG} | jq -r .lb_cert)
+  export ROUTER_CA_CERT=$(cat ${CONFIG} | jq -r .ca_cert)
 fi
 
 # sample CONFIG file

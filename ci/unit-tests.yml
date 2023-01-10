@@ -8,3 +8,8 @@ inputs:
 run:
   path: src/code.cloudfoundry.org/cpu-entitlement-plugin/ci/unit-tests.sh
 
+image_resource:
+  type: registry-image
+  source:
+    repository: c2cnetworking/tas-runtime-build
+    tag: latest
