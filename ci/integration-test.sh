@@ -13,7 +13,7 @@ fi
 #   "admin_password": "meow",
 #   "admin_user": "admin",
 #   "api": "meow.com",
-#   "lb_cert": "BEGIN MEOW CERT"
+#   "ca_cert": "BEGIN MEOW CERT"
 # }
 
 pushd cpu-entitlement-plugin
