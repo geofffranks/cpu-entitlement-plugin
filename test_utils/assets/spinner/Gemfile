@@ -2,3 +2,7 @@ source "http://rubygems.org"
 
 gem "sinatra"
 gem 'concurrent-ruby', require: 'concurrent'
+gem 'thin'
+gem 'puma'
+gem 'falcon'
+gem 'webrick'
