@@ -29,15 +29,17 @@ func (fake *FakeGetToken) Spy() (string, error) {
 	ret, specificReturn := fake.returnsOnCall[len(fake.argsForCall)]
 	fake.argsForCall = append(fake.argsForCall, struct {
 	}{})
+	stub := fake.Stub
+	returns := fake.returns
 	fake.recordInvocation("GetToken", []interface{}{})
 	fake.mutex.Unlock()
-	if fake.Stub != nil {
-		return fake.Stub()
+	if stub != nil {
+		return stub()
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	return fake.returns.result1, fake.returns.result2
+	return returns.result1, returns.result2
 }
 
 func (fake *FakeGetToken) CallCount() int {

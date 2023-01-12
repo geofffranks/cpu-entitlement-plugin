@@ -33,15 +33,16 @@ func (fake *FakeOutputRenderer) ShowApplicationReport(arg1 lager.Logger, arg2 re
 		arg1 lager.Logger
 		arg2 reporter.ApplicationReport
 	}{arg1, arg2})
+	stub := fake.ShowApplicationReportStub
+	fakeReturns := fake.showApplicationReportReturns
 	fake.recordInvocation("ShowApplicationReport", []interface{}{arg1, arg2})
 	fake.showApplicationReportMutex.Unlock()
-	if fake.ShowApplicationReportStub != nil {
-		return fake.ShowApplicationReportStub(arg1, arg2)
+	if stub != nil {
+		return stub(arg1, arg2)
 	}
 	if specificReturn {
 		return ret.result1
 	}
-	fakeReturns := fake.showApplicationReportReturns
 	return fakeReturns.result1
 }
 

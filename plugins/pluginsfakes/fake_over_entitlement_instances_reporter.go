@@ -33,15 +33,16 @@ func (fake *FakeOverEntitlementInstancesReporter) OverEntitlementInstances(arg1 
 	fake.overEntitlementInstancesArgsForCall = append(fake.overEntitlementInstancesArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.OverEntitlementInstancesStub
+	fakeReturns := fake.overEntitlementInstancesReturns
 	fake.recordInvocation("OverEntitlementInstances", []interface{}{arg1})
 	fake.overEntitlementInstancesMutex.Unlock()
-	if fake.OverEntitlementInstancesStub != nil {
-		return fake.OverEntitlementInstancesStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.overEntitlementInstancesReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

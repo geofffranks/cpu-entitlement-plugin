@@ -93,15 +93,16 @@ func (fake *FakeCli) GetApp(arg1 string) (plugin_models.GetAppModel, error) {
 	fake.getAppArgsForCall = append(fake.getAppArgsForCall, struct {
 		arg1 string
 	}{arg1})
+	stub := fake.GetAppStub
+	fakeReturns := fake.getAppReturns
 	fake.recordInvocation("GetApp", []interface{}{arg1})
 	fake.getAppMutex.Unlock()
-	if fake.GetAppStub != nil {
-		return fake.GetAppStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getAppReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -155,15 +156,16 @@ func (fake *FakeCli) GetCurrentOrg() (plugin_models.Organization, error) {
 	ret, specificReturn := fake.getCurrentOrgReturnsOnCall[len(fake.getCurrentOrgArgsForCall)]
 	fake.getCurrentOrgArgsForCall = append(fake.getCurrentOrgArgsForCall, struct {
 	}{})
+	stub := fake.GetCurrentOrgStub
+	fakeReturns := fake.getCurrentOrgReturns
 	fake.recordInvocation("GetCurrentOrg", []interface{}{})
 	fake.getCurrentOrgMutex.Unlock()
-	if fake.GetCurrentOrgStub != nil {
-		return fake.GetCurrentOrgStub()
+	if stub != nil {
+		return stub()
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getCurrentOrgReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -210,15 +212,16 @@ func (fake *FakeCli) GetCurrentSpace() (plugin_models.Space, error) {
 	ret, specificReturn := fake.getCurrentSpaceReturnsOnCall[len(fake.getCurrentSpaceArgsForCall)]
 	fake.getCurrentSpaceArgsForCall = append(fake.getCurrentSpaceArgsForCall, struct {
 	}{})
+	stub := fake.GetCurrentSpaceStub
+	fakeReturns := fake.getCurrentSpaceReturns
 	fake.recordInvocation("GetCurrentSpace", []interface{}{})
 	fake.getCurrentSpaceMutex.Unlock()
-	if fake.GetCurrentSpaceStub != nil {
-		return fake.GetCurrentSpaceStub()
+	if stub != nil {
+		return stub()
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getCurrentSpaceReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -266,15 +269,16 @@ func (fake *FakeCli) GetSpace(arg1 string) (plugin_models.GetSpace_Model, error)
 	fake.getSpaceArgsForCall = append(fake.getSpaceArgsForCall, struct {
 		arg1 string
 	}{arg1})
+	stub := fake.GetSpaceStub
+	fakeReturns := fake.getSpaceReturns
 	fake.recordInvocation("GetSpace", []interface{}{arg1})
 	fake.getSpaceMutex.Unlock()
-	if fake.GetSpaceStub != nil {
-		return fake.GetSpaceStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getSpaceReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -328,15 +332,16 @@ func (fake *FakeCli) GetSpaces() ([]plugin_models.GetSpaces_Model, error) {
 	ret, specificReturn := fake.getSpacesReturnsOnCall[len(fake.getSpacesArgsForCall)]
 	fake.getSpacesArgsForCall = append(fake.getSpacesArgsForCall, struct {
 	}{})
+	stub := fake.GetSpacesStub
+	fakeReturns := fake.getSpacesReturns
 	fake.recordInvocation("GetSpaces", []interface{}{})
 	fake.getSpacesMutex.Unlock()
-	if fake.GetSpacesStub != nil {
-		return fake.GetSpacesStub()
+	if stub != nil {
+		return stub()
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getSpacesReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -383,15 +388,16 @@ func (fake *FakeCli) Username() (string, error) {
 	ret, specificReturn := fake.usernameReturnsOnCall[len(fake.usernameArgsForCall)]
 	fake.usernameArgsForCall = append(fake.usernameArgsForCall, struct {
 	}{})
+	stub := fake.UsernameStub
+	fakeReturns := fake.usernameReturns
 	fake.recordInvocation("Username", []interface{}{})
 	fake.usernameMutex.Unlock()
-	if fake.UsernameStub != nil {
-		return fake.UsernameStub()
+	if stub != nil {
+		return stub()
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.usernameReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

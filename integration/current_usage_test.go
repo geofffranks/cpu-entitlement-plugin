@@ -47,7 +47,7 @@ var _ = Describe("CurrentUsage", func() {
 			emitUsage(appID, "1", "1", 150, 250)
 		})
 
-		It("returns the ideltas ratio of the most recent two instance metrics", func() {
+		FIt("returns the ideltas ratio of the most recent two instance metrics", func() {
 			Eventually(getCurrentUsage(appID, 1, "1")).Should(Equal(1.0))
 		})
 

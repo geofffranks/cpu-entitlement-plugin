@@ -37,15 +37,16 @@ func (fake *FakeFetcher) FetchInstanceData(arg1 lager.Logger, arg2 string, arg3 
 		arg2 string
 		arg3 map[int]cf.Instance
 	}{arg1, arg2, arg3})
+	stub := fake.FetchInstanceDataStub
+	fakeReturns := fake.fetchInstanceDataReturns
 	fake.recordInvocation("FetchInstanceData", []interface{}{arg1, arg2, arg3})
 	fake.fetchInstanceDataMutex.Unlock()
-	if fake.FetchInstanceDataStub != nil {
-		return fake.FetchInstanceDataStub(arg1, arg2, arg3)
+	if stub != nil {
+		return stub(arg1, arg2, arg3)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.fetchInstanceDataReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

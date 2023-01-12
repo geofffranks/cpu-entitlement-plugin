@@ -8,9 +8,9 @@ import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers"
 	"code.cloudfoundry.org/cpu-entitlement-plugin/httpclient"
 	. "code.cloudfoundry.org/cpu-entitlement-plugin/test_utils"
-	logcache "code.cloudfoundry.org/log-cache/pkg/client"
+	logcache "code.cloudfoundry.org/go-log-cache"
+	"code.cloudfoundry.org/test-log-emitter/emitters"
 	"github.com/google/uuid"
-	"github.com/masters-of-cats/test-log-emitter/emitters"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

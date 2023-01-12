@@ -38,9 +38,10 @@ func (fake *FakeAppDisplay) ShowMessage(arg1 string, arg2 ...interface{}) {
 		arg1 string
 		arg2 []interface{}
 	}{arg1, arg2})
+	stub := fake.ShowMessageStub
 	fake.recordInvocation("ShowMessage", []interface{}{arg1, arg2})
 	fake.showMessageMutex.Unlock()
-	if fake.ShowMessageStub != nil {
+	if stub != nil {
 		fake.ShowMessageStub(arg1, arg2...)
 	}
 }
@@ -82,15 +83,16 @@ func (fake *FakeAppDisplay) ShowTable(arg1 lager.Logger, arg2 []string, arg3 [][
 		arg2 []string
 		arg3 [][]string
 	}{arg1, arg2Copy, arg3Copy})
+	stub := fake.ShowTableStub
+	fakeReturns := fake.showTableReturns
 	fake.recordInvocation("ShowTable", []interface{}{arg1, arg2Copy, arg3Copy})
 	fake.showTableMutex.Unlock()
-	if fake.ShowTableStub != nil {
-		return fake.ShowTableStub(arg1, arg2, arg3)
+	if stub != nil {
+		return stub(arg1, arg2, arg3)
 	}
 	if specificReturn {
 		return ret.result1
 	}
-	fakeReturns := fake.showTableReturns
 	return fakeReturns.result1
 }
 

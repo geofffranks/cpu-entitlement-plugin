@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers"
-	"code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2"
-	"code.cloudfoundry.org/log-cache/pkg/client"
-	"code.cloudfoundry.org/log-cache/pkg/rpc/logcache_v1"
+	client "code.cloudfoundry.org/go-log-cache"
+	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
+	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
 )
 
 type FakeLogCacheClient struct {
@@ -71,15 +71,16 @@ func (fake *FakeLogCacheClient) PromQL(arg1 context.Context, arg2 string, arg3 .
 		arg2 string
 		arg3 []client.PromQLOption
 	}{arg1, arg2, arg3})
+	stub := fake.PromQLStub
+	fakeReturns := fake.promQLReturns
 	fake.recordInvocation("PromQL", []interface{}{arg1, arg2, arg3})
 	fake.promQLMutex.Unlock()
-	if fake.PromQLStub != nil {
-		return fake.PromQLStub(arg1, arg2, arg3...)
+	if stub != nil {
+		return stub(arg1, arg2, arg3...)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.promQLReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -136,15 +137,16 @@ func (fake *FakeLogCacheClient) PromQLRange(arg1 context.Context, arg2 string, a
 		arg2 string
 		arg3 []client.PromQLOption
 	}{arg1, arg2, arg3})
+	stub := fake.PromQLRangeStub
+	fakeReturns := fake.promQLRangeReturns
 	fake.recordInvocation("PromQLRange", []interface{}{arg1, arg2, arg3})
 	fake.promQLRangeMutex.Unlock()
-	if fake.PromQLRangeStub != nil {
-		return fake.PromQLRangeStub(arg1, arg2, arg3...)
+	if stub != nil {
+		return stub(arg1, arg2, arg3...)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.promQLRangeReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -202,15 +204,16 @@ func (fake *FakeLogCacheClient) Read(arg1 context.Context, arg2 string, arg3 tim
 		arg3 time.Time
 		arg4 []client.ReadOption
 	}{arg1, arg2, arg3, arg4})
+	stub := fake.ReadStub
+	fakeReturns := fake.readReturns
 	fake.recordInvocation("Read", []interface{}{arg1, arg2, arg3, arg4})
 	fake.readMutex.Unlock()
-	if fake.ReadStub != nil {
-		return fake.ReadStub(arg1, arg2, arg3, arg4...)
+	if stub != nil {
+		return stub(arg1, arg2, arg3, arg4...)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.readReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

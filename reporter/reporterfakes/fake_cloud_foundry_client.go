@@ -59,15 +59,16 @@ func (fake *FakeCloudFoundryClient) GetCurrentOrg(arg1 lager.Logger) (string, er
 	fake.getCurrentOrgArgsForCall = append(fake.getCurrentOrgArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.GetCurrentOrgStub
+	fakeReturns := fake.getCurrentOrgReturns
 	fake.recordInvocation("GetCurrentOrg", []interface{}{arg1})
 	fake.getCurrentOrgMutex.Unlock()
-	if fake.GetCurrentOrgStub != nil {
-		return fake.GetCurrentOrgStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getCurrentOrgReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -122,15 +123,16 @@ func (fake *FakeCloudFoundryClient) GetSpaces(arg1 lager.Logger) ([]cf.Space, er
 	fake.getSpacesArgsForCall = append(fake.getSpacesArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.GetSpacesStub
+	fakeReturns := fake.getSpacesReturns
 	fake.recordInvocation("GetSpaces", []interface{}{arg1})
 	fake.getSpacesMutex.Unlock()
-	if fake.GetSpacesStub != nil {
-		return fake.GetSpacesStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getSpacesReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -185,15 +187,16 @@ func (fake *FakeCloudFoundryClient) Username(arg1 lager.Logger) (string, error) 
 	fake.usernameArgsForCall = append(fake.usernameArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.UsernameStub
+	fakeReturns := fake.usernameReturns
 	fake.recordInvocation("Username", []interface{}{arg1})
 	fake.usernameMutex.Unlock()
-	if fake.UsernameStub != nil {
-		return fake.UsernameStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.usernameReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

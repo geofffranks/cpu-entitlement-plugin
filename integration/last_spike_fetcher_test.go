@@ -9,8 +9,8 @@ import (
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/cf"
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers"
+	"code.cloudfoundry.org/test-log-emitter/emitters"
 	"github.com/google/uuid"
-	"github.com/masters-of-cats/test-log-emitter/emitters"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

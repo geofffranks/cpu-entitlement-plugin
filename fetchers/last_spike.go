@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/cf"
-	"code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2"
+	logcache "code.cloudfoundry.org/go-log-cache"
+	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
+	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
 	"code.cloudfoundry.org/lager"
-	logcache "code.cloudfoundry.org/log-cache/pkg/client"
-	"code.cloudfoundry.org/log-cache/pkg/rpc/logcache_v1"
 )
 
 type LastSpikeInstanceData struct {

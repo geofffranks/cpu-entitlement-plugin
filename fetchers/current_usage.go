@@ -7,8 +7,8 @@ import (
 	"strconv"
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/cf"
+	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
 	"code.cloudfoundry.org/lager"
-	"code.cloudfoundry.org/log-cache/pkg/rpc/logcache_v1"
 )
 
 type CurrentInstanceData struct {
@@ -46,13 +46,16 @@ func (f CurrentUsageFetcher) FetchInstanceData(logger lager.Logger, appGUID stri
 	defer logger.Info("end")
 
 	query := fmt.Sprintf(`idelta(absolute_usage{source_id="%s"}[1m]) / idelta(absolute_entitlement{source_id="%s"}[1m])`, appGUID, appGUID)
+	logger.Info("Query string ", lager.Data{"query": query})
 	res, err := f.client.PromQL(context.Background(), query)
 	if err != nil {
 		logger.Error("promql-failed", err, lager.Data{"query": query})
 		return nil, err
 	}
+	logger.Info("Query result ", lager.Data{"result": res})
 
 	currentUsage := parseCurrentUsage(logger, res, appInstances)
+	logger.Info("currentUsage ", lager.Data{"usage": currentUsage})
 	if len(currentUsage) == len(appInstances) {
 		return currentUsage, nil
 	}
@@ -60,6 +63,7 @@ func (f CurrentUsageFetcher) FetchInstanceData(logger lager.Logger, appGUID stri
 	logger.Info("falling-back-to-cumulative-fetcher")
 
 	cumulativeResult, err := f.fallbackFetcher.FetchInstanceData(logger, appGUID, appInstances)
+	logger.Info("cumulativeResult ", lager.Data{"cumulativeResult": cumulativeResult})
 	if err != nil {
 		logger.Info("fallback-fetcher-failed")
 		return nil, err
@@ -86,6 +90,7 @@ func (f CurrentUsageFetcher) FetchInstanceData(logger lager.Logger, appGUID stri
 			InstanceID: cumulativeData.InstanceID,
 			Usage:      cumulativeData.Usage,
 		}
+		logger.Info("currentUsage ", lager.Data{"currentUsage": currentUsage})
 	}
 
 	return currentUsage, nil

@@ -34,15 +34,16 @@ func (fake *FakeProcessInstanceIDFetcher) Fetch(arg1 lager.Logger, arg2 string) 
 		arg1 lager.Logger
 		arg2 string
 	}{arg1, arg2})
+	stub := fake.FetchStub
+	fakeReturns := fake.fetchReturns
 	fake.recordInvocation("Fetch", []interface{}{arg1, arg2})
 	fake.fetchMutex.Unlock()
-	if fake.FetchStub != nil {
-		return fake.FetchStub(arg1, arg2)
+	if stub != nil {
+		return stub(arg1, arg2)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.fetchReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 

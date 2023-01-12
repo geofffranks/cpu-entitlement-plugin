@@ -33,15 +33,16 @@ func (fake *FakeOverEntitlementInstancesRenderer) Render(arg1 lager.Logger, arg2
 		arg1 lager.Logger
 		arg2 reporter.OEIReport
 	}{arg1, arg2})
+	stub := fake.RenderStub
+	fakeReturns := fake.renderReturns
 	fake.recordInvocation("Render", []interface{}{arg1, arg2})
 	fake.renderMutex.Unlock()
-	if fake.RenderStub != nil {
-		return fake.RenderStub(arg1, arg2)
+	if stub != nil {
+		return stub(arg1, arg2)
 	}
 	if specificReturn {
 		return ret.result1
 	}
-	fakeReturns := fake.renderReturns
 	return fakeReturns.result1
 }
 

@@ -74,15 +74,16 @@ func (fake *FakeAppReporterCloudFoundryClient) GetApplication(arg1 lager.Logger,
 		arg1 lager.Logger
 		arg2 string
 	}{arg1, arg2})
+	stub := fake.GetApplicationStub
+	fakeReturns := fake.getApplicationReturns
 	fake.recordInvocation("GetApplication", []interface{}{arg1, arg2})
 	fake.getApplicationMutex.Unlock()
-	if fake.GetApplicationStub != nil {
-		return fake.GetApplicationStub(arg1, arg2)
+	if stub != nil {
+		return stub(arg1, arg2)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getApplicationReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -137,15 +138,16 @@ func (fake *FakeAppReporterCloudFoundryClient) GetCurrentOrg(arg1 lager.Logger) 
 	fake.getCurrentOrgArgsForCall = append(fake.getCurrentOrgArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.GetCurrentOrgStub
+	fakeReturns := fake.getCurrentOrgReturns
 	fake.recordInvocation("GetCurrentOrg", []interface{}{arg1})
 	fake.getCurrentOrgMutex.Unlock()
-	if fake.GetCurrentOrgStub != nil {
-		return fake.GetCurrentOrgStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getCurrentOrgReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -200,15 +202,16 @@ func (fake *FakeAppReporterCloudFoundryClient) GetCurrentSpace(arg1 lager.Logger
 	fake.getCurrentSpaceArgsForCall = append(fake.getCurrentSpaceArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.GetCurrentSpaceStub
+	fakeReturns := fake.getCurrentSpaceReturns
 	fake.recordInvocation("GetCurrentSpace", []interface{}{arg1})
 	fake.getCurrentSpaceMutex.Unlock()
-	if fake.GetCurrentSpaceStub != nil {
-		return fake.GetCurrentSpaceStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.getCurrentSpaceReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
@@ -263,15 +266,16 @@ func (fake *FakeAppReporterCloudFoundryClient) Username(arg1 lager.Logger) (stri
 	fake.usernameArgsForCall = append(fake.usernameArgsForCall, struct {
 		arg1 lager.Logger
 	}{arg1})
+	stub := fake.UsernameStub
+	fakeReturns := fake.usernameReturns
 	fake.recordInvocation("Username", []interface{}{arg1})
 	fake.usernameMutex.Unlock()
-	if fake.UsernameStub != nil {
-		return fake.UsernameStub(arg1)
+	if stub != nil {
+		return stub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.usernameReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
