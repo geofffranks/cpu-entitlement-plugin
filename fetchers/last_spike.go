@@ -59,6 +59,7 @@ func parseLastSpike(logger lager.Logger, res []*loggregator_v2.Envelope, appInst
 		}
 
 		if _, alreadySet := lastSpikePerInstance[instanceID]; alreadySet {
+			logger.Info("already-set", lager.Data{"instanceID": instanceID, "lastSpike": lastSpikePerInstance[instanceID]})
 			continue
 		}
 
