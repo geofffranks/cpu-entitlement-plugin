@@ -33,7 +33,7 @@ func (f LastSpikeFetcher) FetchInstanceData(logger lager.Logger, appGUID string,
 	defer logger.Info("end")
 
 	res, err := f.client.Read(context.Background(), appGUID, f.since,
-		logcache.WithEnvelopeTypes(logcache_v1.EnvelopeType_GAUGE),
+		logcache.WithEnvelopeTypes(logcache_v1.EnvelopeType_TIMER),
 		logcache.WithDescending(),
 		logcache.WithNameFilter("spike"),
 	)
@@ -62,7 +62,7 @@ func parseLastSpike(logger lager.Logger, res []*loggregator_v2.Envelope, appInst
 			continue
 		}
 
-		envelopeGauge, ok := envelope.Message.(*loggregator_v2.Envelope_Gauge)
+		envelopeGauge, ok := envelope.Message.(*loggregator_v2.Envelope_Timer)
 		if !ok {
 			logger.Info("ignoring-non-gauge-message", lager.Data{"gauge-message": envelope.Message})
 			continue
@@ -73,24 +73,11 @@ func parseLastSpike(logger lager.Logger, res []*loggregator_v2.Envelope, appInst
 			continue
 		}
 
-		if envelopeGauge.Gauge != nil && envelopeGauge.Gauge.Metrics != nil {
-			gaugeValues := envelopeGauge.Gauge.Metrics
-			spikeStartValue, ok := gaugeValues["spike_start"]
-			if !ok {
-				continue
-			}
-			spikeStart := time.Unix(int64(spikeStartValue.Value), 0)
-
-			spikeEndValue, ok := gaugeValues["spike_end"]
-			if !ok {
-				continue
-			}
-			spikeEnd := time.Unix(int64(spikeEndValue.Value), 0)
-
+		if envelopeGauge.Timer != nil {
 			lastSpikePerInstance[instanceID] = LastSpikeInstanceData{
 				InstanceID: instanceID,
-				From:       spikeStart,
-				To:         spikeEnd,
+				From:       time.Unix(0, envelopeGauge.Timer.Start),
+				To:         time.Unix(0, envelopeGauge.Timer.Stop),
 			}
 		}
 	}
