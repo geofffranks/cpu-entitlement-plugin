@@ -68,6 +68,8 @@ func parseLastSpike(logger lager.Logger, res []*loggregator_v2.Envelope, appInst
 			continue
 		}
 
+		logger.Info("Tags: ", lager.Data{"tags": envelope.Tags, "ProcessInstanceID": appInstances[instanceID].ProcessInstanceID})
+
 		processInstanceID := envelope.Tags["process_instance_id"]
 		if appInstances[instanceID].ProcessInstanceID != processInstanceID {
 			continue
