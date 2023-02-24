@@ -20,8 +20,8 @@ code.cloudfoundry.org/lager v2.0.0+incompatible h1:WZwDKDB2PLd/oL+USK4b4aEjUymIe
 code.cloudfoundry.org/lager v2.0.0+incompatible/go.mod h1:O2sS7gKP3HM2iemG+EnwvyNQK7pTSC6Foi4QiMp9sSk=
 code.cloudfoundry.org/rfc5424 v0.0.0-20201103192249-000122071b78 h1:mrZQaZmuDIPhSp6b96b+CRKC2uH44ifa5cjDV2epKis=
 code.cloudfoundry.org/rfc5424 v0.0.0-20201103192249-000122071b78/go.mod h1:tkZo8GtzBjySJ7USvxm4E36lNQw1D3xM6oKHGqdaAJ4=
-code.cloudfoundry.org/test-log-emitter v0.0.0-20230224202342-5317a4f0a055 h1:7m+6sDR5Uncf8J3CHA37u4CoPLu29VkCBx1D4xDuNSY=
-code.cloudfoundry.org/test-log-emitter v0.0.0-20230224202342-5317a4f0a055/go.mod h1:T8//ZrkLAIn3aFX9GYSCqAJd5tzqp67wlXDcVbz8R10=
+code.cloudfoundry.org/test-log-emitter v0.0.0-20230224214436-ebbe505583c7 h1:gpJCUja1afImGOWOI/XLt/fEQpZnXhSaWWQc5WwE+B0=
+code.cloudfoundry.org/test-log-emitter v0.0.0-20230224214436-ebbe505583c7/go.mod h1:T8//ZrkLAIn3aFX9GYSCqAJd5tzqp67wlXDcVbz8R10=
 code.cloudfoundry.org/tlsconfig v0.0.0-20230131191323-96331f8f153d h1:n3JgM3s5MEfSKxWis+VWsMghVTyKkO64rAYeVTqbwh0=
 code.cloudfoundry.org/tlsconfig v0.0.0-20230131191323-96331f8f153d/go.mod h1:eEXL1uwhjzQp0klT34gUn0QPSvlYcXP83tgUicS0kVc=
 code.cloudfoundry.org/ykk v0.0.0-20170424192843-e4df4ce2fd4d h1:M+zXqtXJqcsmpL76aU0tdl1ho23eYa4axYoM4gD62UA=
