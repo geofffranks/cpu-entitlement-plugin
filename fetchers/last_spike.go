@@ -7,7 +7,6 @@ import (
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/cf"
 	logcache "code.cloudfoundry.org/go-log-cache"
-	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
 	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
 	"code.cloudfoundry.org/lager"
 )
@@ -33,8 +32,8 @@ func (f LastSpikeFetcher) FetchInstanceData(logger lager.Logger, appGUID string,
 	defer logger.Info("end")
 
 	res, err := f.client.Read(context.Background(), appGUID, f.since,
-		logcache.WithEnvelopeTypes(logcache_v1.EnvelopeType_TIMER),
-		logcache.WithDescending(),
+		// logcache.WithEnvelopeTypes(logcache_v1.EnvelopeType_TIMER),
+		// logcache.WithDescending(),
 		logcache.WithNameFilter("spike"),
 	)
 	if err != nil {
