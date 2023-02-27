@@ -5,14 +5,14 @@ go 1.19
 require (
 	code.cloudfoundry.org/cli v7.1.0+incompatible
 	code.cloudfoundry.org/go-log-cache v1.0.1-0.20230106184352-6dc0e9ab2e65
-	code.cloudfoundry.org/go-loggregator/v9 v9.0.3
+	code.cloudfoundry.org/go-loggregator/v9 v9.0.4
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	code.cloudfoundry.org/test-log-emitter v0.0.0-20230112145843-ee135a470ca1
 	github.com/fatih/color v1.13.0
 	github.com/google/uuid v1.3.0
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.24.2
+	github.com/onsi/gomega v1.27.1
 )
 
 require (
@@ -49,7 +49,7 @@ require (
 	github.com/moby/moby v20.10.7+incompatible // indirect
 	github.com/moby/term v0.0.0-20201216013528-df9cb8a40635 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
-	github.com/onsi/ginkgo/v2 v2.7.0 // indirect
+	github.com/onsi/ginkgo/v2 v2.8.3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rivo/uniseg v0.4.3 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
@@ -58,11 +58,11 @@ require (
 	github.com/tedsuo/rata v1.0.0 // indirect
 	github.com/vito/go-interact v1.0.1 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
-	golang.org/x/net v0.5.0 // indirect
-	golang.org/x/sys v0.4.0 // indirect
-	golang.org/x/term v0.4.0 // indirect
-	golang.org/x/text v0.6.0 // indirect
-	golang.org/x/tools v0.5.0 // indirect
+	golang.org/x/net v0.7.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/term v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
+	golang.org/x/tools v0.6.0 // indirect
 	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f // indirect
 	google.golang.org/grpc v1.52.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
