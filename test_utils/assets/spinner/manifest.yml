@@ -1,0 +1,8 @@
+---
+applications:
+- buildpacks:
+  - ruby_buildpack
+  memory: 256M
+  env:
+    MAX_THREADS: 10000
+    WEB_CONCURRENCY: 10

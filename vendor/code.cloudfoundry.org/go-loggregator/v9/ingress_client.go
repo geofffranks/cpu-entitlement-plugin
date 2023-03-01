@@ -8,12 +8,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
+
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2"
+	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
 )
 
 // IngressOption is the type of a configurable client option.
@@ -527,7 +528,7 @@ func (c *IngressClient) closeAndRecv() {
 	if c.sender == nil {
 		return
 	}
-	c.sender.CloseAndRecv()
+	_, _ = c.sender.CloseAndRecv()
 }
 
 func (c *IngressClient) flush(batch []*loggregator_v2.Envelope) error {

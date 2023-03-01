@@ -40,7 +40,7 @@ func PushSpinnerWithCert(appName string, instances int, certFile string) {
 func pushSpinnerCmd(appName string, instances int) Command {
 	return Cmd("cf", "push", appName, "-i", strconv.Itoa(instances)).
 		WithDir("../test_utils/assets/spinner").
-		WithTimeout("3m")
+		WithTimeout("5m")
 }
 
 func httpGet(url string) {

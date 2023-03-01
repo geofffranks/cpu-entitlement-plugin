@@ -36,27 +36,29 @@ var _ = Describe("Last Spike Fetcher", func() {
 
 	When("multiple spikes have been emitted", func() {
 		BeforeEach(func() {
-			emitGauge(emitters.GaugeMetric{
+			emitTimer(emitters.TimerMetric{
 				SourceId:   appGuid,
 				InstanceId: "0",
 				Tags: map[string]string{
 					"process_instance_id": "1",
 				},
-				Values: []emitters.GaugeValue{
-					{Name: "spike_start", Value: 134, Unit: "seconds"},
-					{Name: "spike_end", Value: 136, Unit: "seconds"},
+				Value: emitters.TimerValue{
+					Name:  "spike",
+					Start: time.Unix(134, 0),
+					End:   time.Unix(136, 0),
 				},
 			})
 
-			emitGauge(emitters.GaugeMetric{
+			emitTimer(emitters.TimerMetric{
 				SourceId:   appGuid,
 				InstanceId: "0",
 				Tags: map[string]string{
 					"process_instance_id": "1",
 				},
-				Values: []emitters.GaugeValue{
-					{Name: "spike_start", Value: 234, Unit: "seconds"},
-					{Name: "spike_end", Value: 236, Unit: "seconds"},
+				Value: emitters.TimerValue{
+					Name:  "spike",
+					Start: time.Unix(234, 0),
+					End:   time.Unix(236, 0),
 				},
 			})
 		})
@@ -80,17 +82,18 @@ var _ = Describe("Last Spike Fetcher", func() {
 		})
 	})
 
-	When("a non-spike gauge has been emitted", func() {
+	When("a non-spike timer has been emitted", func() {
 		BeforeEach(func() {
-			emitGauge(emitters.GaugeMetric{
+			emitTimer(emitters.TimerMetric{
 				SourceId:   appGuid,
 				InstanceId: "0",
 				Tags: map[string]string{
 					"process_instance_id": "1",
 				},
-				Values: []emitters.GaugeValue{
-					{Name: "spoke_start", Value: 134, Unit: "seconds"},
-					{Name: "spoke_end", Value: 136, Unit: "seconds"},
+				Value: emitters.TimerValue{
+					Name:  "spike",
+					Start: time.Unix(134, 0),
+					End:   time.Unix(136, 0),
 				},
 			})
 		})
@@ -121,15 +124,16 @@ var _ = Describe("Last Spike Fetcher", func() {
 
 	When("a metric belongs to an old instance", func() {
 		BeforeEach(func() {
-			emitGauge(emitters.GaugeMetric{
+			emitTimer(emitters.TimerMetric{
 				SourceId:   appGuid,
 				InstanceId: "0",
 				Tags: map[string]string{
 					"process_instance_id": "old",
 				},
-				Values: []emitters.GaugeValue{
-					{Name: "spike_start", Value: 234, Unit: "seconds"},
-					{Name: "spike_end", Value: 236, Unit: "seconds"},
+				Value: emitters.TimerValue{
+					Name:  "spike",
+					Start: time.Unix(234, 0),
+					End:   time.Unix(236, 0),
 				},
 			})
 		})
@@ -143,6 +147,10 @@ var _ = Describe("Last Spike Fetcher", func() {
 
 func emitGauge(gauge emitters.GaugeMetric) {
 	emitMetric("/gauge", gauge)
+}
+
+func emitTimer(timer emitters.TimerMetric) {
+	emitMetric("/timer", timer)
 }
 
 func emitCounter(counter emitters.CounterMetric) {

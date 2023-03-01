@@ -62,12 +62,11 @@ var _ = Describe("LastSpikeFetcher", func() {
 						"process_instance_id": "abc",
 					},
 					Timestamp: 10,
-					Message: &loggregator_v2.Envelope_Gauge{
-						Gauge: &loggregator_v2.Gauge{
-							Metrics: map[string]*loggregator_v2.GaugeValue{
-								"spike_start": &loggregator_v2.GaugeValue{Value: 5},
-								"spike_end":   &loggregator_v2.GaugeValue{Value: 6},
-							},
+					Message: &loggregator_v2.Envelope_Timer{
+						Timer: &loggregator_v2.Timer{
+							Name:  "spike",
+							Start: 5,
+							Stop:  6,
 						},
 					},
 				},
@@ -101,7 +100,7 @@ var _ = Describe("LastSpikeFetcher", func() {
 		})
 	})
 
-	When("the gauge is nil", func() {
+	When("the timer is nil", func() {
 		BeforeEach(func() {
 			logCacheClient.ReadReturns([]*loggregator_v2.Envelope{
 				{
@@ -110,8 +109,8 @@ var _ = Describe("LastSpikeFetcher", func() {
 						"process_instance_id": "abc",
 					},
 					Timestamp: 10,
-					Message: &loggregator_v2.Envelope_Gauge{
-						Gauge: nil,
+					Message: &loggregator_v2.Envelope_Timer{
+						Timer: nil,
 					},
 				},
 			}, nil)
@@ -132,9 +131,9 @@ var _ = Describe("LastSpikeFetcher", func() {
 						"process_instance_id": "abc",
 					},
 					Timestamp: 10,
-					Message: &loggregator_v2.Envelope_Gauge{
-						Gauge: &loggregator_v2.Gauge{
-							Metrics: nil,
+					Message: &loggregator_v2.Envelope_Timer{
+						Timer: &loggregator_v2.Timer{
+							Name: "joke",
 						},
 					},
 				},
@@ -156,11 +155,11 @@ var _ = Describe("LastSpikeFetcher", func() {
 						"process_instance_id": "abc",
 					},
 					Timestamp: 10,
-					Message: &loggregator_v2.Envelope_Gauge{
-						Gauge: &loggregator_v2.Gauge{
-							Metrics: map[string]*loggregator_v2.GaugeValue{
-								"spike_troll": &loggregator_v2.GaugeValue{Value: 5},
-							},
+					Message: &loggregator_v2.Envelope_Timer{
+						Timer: &loggregator_v2.Timer{
+							Name:  "spike_troll",
+							Start: 5,
+							Stop:  6,
 						},
 					},
 				},
@@ -173,32 +172,7 @@ var _ = Describe("LastSpikeFetcher", func() {
 		})
 	})
 
-	When("there is only a spike_start and no spike_end", func() {
-		BeforeEach(func() {
-			logCacheClient.ReadReturns([]*loggregator_v2.Envelope{
-				{
-					InstanceId: "0",
-					Tags: map[string]string{
-						"process_instance_id": "abc",
-					},
-					Timestamp: 10,
-					Message: &loggregator_v2.Envelope_Gauge{
-						Gauge: &loggregator_v2.Gauge{
-							Metrics: map[string]*loggregator_v2.GaugeValue{
-								"spike_start": &loggregator_v2.GaugeValue{Value: 5},
-							},
-						},
-					},
-				},
-			}, nil)
-		})
-
-		It("ignores the invalid entries", func() {
-			Expect(fetchErr).NotTo(HaveOccurred())
-			Expect(spikes).To(HaveLen(0))
-		})
-	})
-
+	//Removing test for no Stop, because with Timer metric, that'd be mute and useless
 })
 
 func MetricEnvelope(appGuid, instanceId string, metric Metric) *loggregator_v2.Envelope {

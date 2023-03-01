@@ -113,8 +113,8 @@ var _ = Describe("cpu-plugins", func() {
 				})
 
 				JustBeforeEach(func() {
-					Spin(getAppUrl(appName), 2)
-					Spin(getAppUrl(appName), 2)
+					Spin(getAppUrl(appName), 10)
+					Spin(getAppUrl(appName), 10)
 
 					waitgroup.Add(2)
 
