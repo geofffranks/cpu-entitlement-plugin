@@ -5,14 +5,14 @@ go 1.19
 require (
 	code.cloudfoundry.org/cli v7.1.0+incompatible
 	code.cloudfoundry.org/go-log-cache v1.0.1-0.20230106184352-6dc0e9ab2e65
-	code.cloudfoundry.org/go-loggregator/v9 v9.0.3
+	code.cloudfoundry.org/go-loggregator/v9 v9.0.4
 	code.cloudfoundry.org/lager v2.0.0+incompatible
-	code.cloudfoundry.org/test-log-emitter v0.0.0-20230224214436-ebbe505583c7
+	code.cloudfoundry.org/test-log-emitter v0.0.0-20230301191511-86176b7ee269
 	github.com/fatih/color v1.13.0
 	github.com/google/uuid v1.3.0
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.27.0
+	github.com/onsi/gomega v1.27.1
 )
 
 require (
@@ -23,7 +23,7 @@ require (
 	code.cloudfoundry.org/gofileutils v0.0.0-20170111115228-4d0c80011a0f // indirect
 	code.cloudfoundry.org/jsonry v1.1.3 // indirect
 	code.cloudfoundry.org/rfc5424 v0.0.0-20201103192249-000122071b78 // indirect
-	code.cloudfoundry.org/tlsconfig v0.0.0-20230131191323-96331f8f153d // indirect
+	code.cloudfoundry.org/tlsconfig v0.0.0-20230225100352-b3e9427a4d77 // indirect
 	code.cloudfoundry.org/ykk v0.0.0-20170424192843-e4df4ce2fd4d // indirect
 	github.com/SermoDigital/jose v0.9.1 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
@@ -39,7 +39,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/google/pprof v0.0.0-20230222194610-99052d3372e7 // indirect
+	github.com/google/pprof v0.0.0-20230228050547-1710fef4ab10 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0 // indirect
 	github.com/kr/pty v1.1.1 // indirect
 	github.com/lunixbochs/vtclean v1.0.0 // indirect
@@ -49,11 +49,12 @@ require (
 	github.com/moby/moby v20.10.7+incompatible // indirect
 	github.com/moby/term v0.0.0-20201216013528-df9cb8a40635 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
-	github.com/onsi/ginkgo/v2 v2.8.3 // indirect
+	github.com/onsi/ginkgo/v2 v2.8.4 // indirect
 	github.com/rivo/uniseg v0.4.3 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20201211210132-54b8a0bf510f // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tedsuo/rata v1.0.0 // indirect
 	github.com/vito/go-interact v1.0.1 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
@@ -62,7 +63,7 @@ require (
 	golang.org/x/term v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/tools v0.6.0 // indirect
-	google.golang.org/genproto v0.0.0-20230223222841-637eb2293923 // indirect
+	google.golang.org/genproto v0.0.0-20230301171018-9ab4bdc49ad5 // indirect
 	google.golang.org/grpc v1.53.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/cheggaaa/pb.v1 v1.0.28 // indirect
