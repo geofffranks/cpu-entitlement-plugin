@@ -3,9 +3,9 @@ package fetchers_test
 import (
 	"testing"
 
+	"code.cloudfoundry.org/go-log-cache/v2/rpc/logcache_v1"
 	"code.cloudfoundry.org/lager"
 	"code.cloudfoundry.org/lager/lagertest"
-	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

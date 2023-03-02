@@ -8,7 +8,7 @@ import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers"
 	"code.cloudfoundry.org/cpu-entitlement-plugin/httpclient"
 	. "code.cloudfoundry.org/cpu-entitlement-plugin/test_utils"
-	logcache "code.cloudfoundry.org/go-log-cache"
+	logcache "code.cloudfoundry.org/go-log-cache/v2"
 	"code.cloudfoundry.org/test-log-emitter/emitters"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo"

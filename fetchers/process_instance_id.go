@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	logcache "code.cloudfoundry.org/go-log-cache"
-	"code.cloudfoundry.org/go-log-cache/rpc/logcache_v1"
+	logcache "code.cloudfoundry.org/go-log-cache/v2"
+	"code.cloudfoundry.org/go-log-cache/v2/rpc/logcache_v1"
 	"code.cloudfoundry.org/lager"
 )
 
