@@ -2,11 +2,10 @@
 platform: linux
 
 inputs:
-- name: cpu-entitlement-plugin
-  path: src/code.cloudfoundry.org/cpu-entitlement-plugin
+- name: repo
 
 run:
-  path: src/code.cloudfoundry.org/cpu-entitlement-plugin/ci/unit-tests.sh
+  path: repo/ci/unit-tests.sh
 
 image_resource:
   type: registry-image

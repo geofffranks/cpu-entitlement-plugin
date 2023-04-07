@@ -2,14 +2,14 @@
 platform: linux
 
 inputs:
-- name: cpu-entitlement-plugin
+- name: repo
 - name: version
 
 outputs:
 - name: plugin-binaries
 
 run:
-  path: cpu-entitlement-plugin/ci/build-binaries.sh
+  path: repo/ci/build-binaries.sh
 
 image_resource:
   type: registry-image

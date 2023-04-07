@@ -2,7 +2,7 @@
 platform: linux
 
 inputs:
-- name: cpu-entitlement-plugin
+- name: repo
 - name: cf-env-variables
   optional: true
 
@@ -13,7 +13,7 @@ params:
   CONFIG:
 
 run:
-  path: cpu-entitlement-plugin/ci/integration-test.sh
+  path: repo/ci/integration-test.sh
 
 image_resource:
   type: registry-image

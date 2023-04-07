@@ -3,7 +3,7 @@ set -euo pipefail
 
 IGNORE_PROTOBUF_ERROR="-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore"
 
-cd cpu-entitlement-plugin
+cd repo
 
 go-build() {
   local file_extension

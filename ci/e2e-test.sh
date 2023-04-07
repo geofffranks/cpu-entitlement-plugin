@@ -16,7 +16,6 @@ fi
 #   "ca_cert": "BEGIN MEOW CERT"
 # }
 
-pushd cpu-entitlement-plugin
-go install github.com/onsi/ginkgo/ginkgo@latest
+pushd repo 
 make e2e-test
 popd
