@@ -22,7 +22,7 @@ install: build
 	cf install-plugin ./cpu-overentitlement-instances-plugin -f
 
 e2e-test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor -randomizeAllSpecs -randomizeSuites -race -keepGoing e2e
+	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor --randomize-all --race --keep-going e2e
 
 integration-test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor -randomizeAllSpecs -randomizeSuites -race -keepGoing integration
+	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor --randomize-all --race --keep-going integration
