@@ -2,7 +2,7 @@ package cf
 
 import (
 	plugin_models "code.cloudfoundry.org/cli/plugin/models"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 //go:generate counterfeiter . Cli

@@ -17,7 +17,7 @@ import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/output"
 	"code.cloudfoundry.org/cpu-entitlement-plugin/reporter"
 	logcache "code.cloudfoundry.org/go-log-cache"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 	flags "github.com/jessevdk/go-flags"
 )
 

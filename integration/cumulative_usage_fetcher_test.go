@@ -11,7 +11,7 @@ import (
 	logcache "code.cloudfoundry.org/go-log-cache"
 	"code.cloudfoundry.org/test-log-emitter/emitters"
 	"github.com/google/uuid"
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 

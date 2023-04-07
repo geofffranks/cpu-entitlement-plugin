@@ -2,7 +2,7 @@ package output
 
 import (
 	"code.cloudfoundry.org/cli/cf/terminal"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 type TerminalDisplay struct {

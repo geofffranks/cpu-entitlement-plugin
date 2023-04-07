@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"code.cloudfoundry.org/cpu-entitlement-plugin/cf"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 type CumulativeInstanceData struct {

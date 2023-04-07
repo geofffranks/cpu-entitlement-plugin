@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"code.cloudfoundry.org/go-loggregator/v9"
+	loggregator "code.cloudfoundry.org/go-loggregator/v9"
 )
 
 type TimerValue struct {

@@ -13,7 +13,7 @@ build:
 	go build -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor -o cpu-overentitlement-instances-plugin  ./cmd/cpu-overentitlement-instances
 
 test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -r -p -mod vendor -skipPackage e2e,integration -keepGoing -randomizeAllSpecs -race
+	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -r -p -mod vendor --skip-package e2e,integration --keep-going --randomize-all --race
 
 install: build
 	cf uninstall-plugin CPUEntitlementPlugin || true

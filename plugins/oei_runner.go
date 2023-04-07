@@ -2,7 +2,7 @@ package plugins
 
 import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/reporter"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 //go:generate counterfeiter . OverEntitlementInstancesReporter

@@ -7,7 +7,7 @@ import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers"
 	"code.cloudfoundry.org/cpu-entitlement-plugin/fetchers/fetchersfakes"
 	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 

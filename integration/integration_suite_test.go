@@ -10,9 +10,9 @@ import (
 	"code.cloudfoundry.org/cpu-entitlement-plugin/httpclient"
 	. "code.cloudfoundry.org/cpu-entitlement-plugin/test_utils"
 	logcache "code.cloudfoundry.org/go-log-cache"
-	"code.cloudfoundry.org/lager"
-	"code.cloudfoundry.org/lager/lagertest"
-	. "github.com/onsi/ginkgo"
+	"code.cloudfoundry.org/lager/v3"
+	"code.cloudfoundry.org/lager/v3/lagertest"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"
 )
