@@ -7,13 +7,12 @@ help:
 	@echo '  test ......................... run tests (such as they are)'
 	@echo '  help ......................... show help menu'
 
-IGNORE_PROTOBUF_ERROR = "-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore"
 build:
-	go build -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor -o cpu-entitlement-plugin  ./cmd/cpu-entitlement
-	go build -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor -o cpu-overentitlement-instances-plugin  ./cmd/cpu-overentitlement-instances
+	go build -mod vendor -o cpu-entitlement-plugin  ./cmd/cpu-entitlement
+	go build -mod vendor -o cpu-overentitlement-instances-plugin  ./cmd/cpu-overentitlement-instances
 
 test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -r -p -mod vendor --skip-package e2e,integration --keep-going --randomize-all --race
+	ginkgo -r -p -mod vendor --skip-package e2e,integration --keep-going --randomize-all --race
 
 install: build
 	cf uninstall-plugin CPUEntitlementPlugin || true
@@ -22,7 +21,7 @@ install: build
 	cf install-plugin ./cpu-overentitlement-instances-plugin -f
 
 e2e-test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor --randomize-all --race --keep-going e2e
+	ginkgo -mod vendor --randomize-all --race --keep-going e2e
 
 integration-test:
-	ginkgo -ldflags $(IGNORE_PROTOBUF_ERROR) -mod vendor --randomize-all --race --keep-going integration
+	ginkgo -mod vendor --randomize-all --race --keep-going integration
