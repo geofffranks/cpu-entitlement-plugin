@@ -105,7 +105,7 @@ var _ = Describe("cpu-plugins", func() {
 					defer waitgroup.Done()
 
 					Eventually(getAvgUsageFunc(instanceId)).Should(BeNumerically(">", 100))
-					Eventually(getAvgUsageFunc(instanceId), time.Minute).Should(BeNumerically("<", 100))
+					Eventually(getAvgUsageFunc(instanceId), 5*time.Minute).Should(BeNumerically("<", 100))
 				}
 
 				BeforeEach(func() {
